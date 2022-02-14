@@ -97,6 +97,7 @@ sequelize db:migrate
 
 # PostgreSQL Table Structure
 ## The Tables
+
 `user_games`
 
 | Column    | Type    | Constraint | Value          |
@@ -108,6 +109,7 @@ sequelize db:migrate
 | email     | STRING  | NOTNULL    | input          |
 | createdAt | DATE    | NOTNULL    | Auto Generated |
 | updatedAt | DATE    | NOTNULL    | Auto Generated |
+
 `user_game_histories`
 
 | Column                | Type    | Constraint        | Value                 |
@@ -119,6 +121,7 @@ sequelize db:migrate
 | score                 | INTEGER | 1, -1, 0, NOTNULL | Fetched from the game |
 | createdAt             | DATE    | NOTNULL           | Auto Generated        |
 | updatedAt             | DATE    | NOTNULL           | Auto Generated        |
+
 `user_game_biodata`
 
 | Column              | Type    | Constraint | Value          |
