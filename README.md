@@ -49,7 +49,7 @@ Tools:
 
 Kind of additional page for previous challenge, this chapter I learnt about database stuff (POSTGRESQL) like:
 
-- `ORM in General` => I'm fully understand how's ORM works now, since I just not get into ORM in the past. Here, Object Relation Mapping is very important to enhance our development experience, can't imagine managing database without it!
+- `ORM in General` => I fully understand how's ORM works now, since then I just not get into ORM. Here, Object Relation Mapping is very important to enhance our development experience, can't imagine managing database without it!
 - `PostgreSQL` => I know SQL's been a query language for ages, but here I know if postgreSQL can be effective and efficient solution for relational database, even though the installation is not that easy.
 - `Sequelize` => Never heard this before and when I know it, I have some headache on association feature and of course the promise style this sequelize has. But when I get used to it, it's fun enough, at least once I found and able to resolve bugs that took me hours :D
 - `UI to Database` => Have a great experience in connecting UI elements dinamically as per the database via EJS (View Engine) and Sequelize (ORM).
@@ -157,7 +157,11 @@ Will need user input `email`, `username`, `password` to make a request to regist
 Redirect to Home Page with the new user that has already logged in.
 
 ## Rock Paper Scissor Game
-The game logic is using threshold point, User will win in 6 match, otherwise they will lose/draw if the score is 3 - 3.
+The game logic is using threshold point, it's been set to 6. Means, the result will be out when
+`user.points + comp.points = 6`
+User will be win if the score is either 1-5, 2-4
+User will be lose if the score is either 5-1, 4-2
+User will be drawn if the score is 3-3
 ### Request
 `POST /histories`
 ### Response
