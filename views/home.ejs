@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css"
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <title>Binar GameHub - Home</title>
+  </head>
+  <body>
+    <!-- NAVBAR - MAIN MENU -->
+    <nav class="navbar navbar-expand-lg navbar-dark menu shadow fixed-top py-2">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img src="images/favicon.png" alt="logo" width="40px"> 
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse row" id="navbarNav">
+          <ul class="navbar-nav col-lg-7 offset-lg-2 px-2 px-lg-0 px-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">WORK</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">CONTACT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ABOUT ME</a>
+            </li>
+          </ul>
+          <ul
+            class="navbar-nav col-lg-3 justify-content-end px-2 px-lg-0 px-md-0"
+          >
+            <% if(logProps.isLogged === false) { %>
+            <li class="nav-item"><a href="/signup" class="nav-link">SIGN UP</a></li>
+            <li class="nav-item"><a href="/signin" class="nav-link">LOGIN</a></li>
+            <% } %>
+            <% if(logProps.isLogged === true) { %>
+            <li class="nav-item"><a href="/logout" class="nav-link">LOGOUT</a></li>
+            <li class="nav-item"><a href="/dashboard" class="nav-link">DASHBOARD</a></li>
+            <li class="nav-item"><a href="/users/<%= logProps.loggedAs.uuid %>" class="nav-link"><%= logProps.loggedAs.username.toUpperCase() %></a></li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- INTRO - MAIN CALL TO ACTION -->
+    <section id="intro" class="intro">
+      <div class="container-fluid p-0">
+        <div class="intro__info">
+          <h1 class="text-uppercase text-white">Play traditional game</h1>
+          <h3 class="text-white py-4">Experience new traditional game play</h3>
+          <a
+            href="./game"
+            type="button"
+            class="btn btn-primary main-btn"
+          >
+            PLAY NOW
+          </a>
+        </div>
+        <div class="intro__scroll">
+          <a href="#gameplay">
+            <p class="intro__scroll--text">The Story</p>
+            <span class="intro__scroll--animate"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDER - GAMEPLAY OPTIONS -->
+    <section class="gameplay" id="gameplay">
+      <div
+        class="
+          container
+          w-100
+          h-100
+          d-flex
+          justify-content-center
+          align-items-center
+        "
+      >
+        <div class="row gameplay__container text-center mt-0 mt-xxl-5">
+          <div class="gameplay__info col-xxl-4 col-xl-12 mb-xl-0">
+            <p class="gameplay__info--subtitle">What's so special?</p>
+            <h3 class="gameplay__info--title">THE GAMES</h3>
+          </div>
+          <div class="gameplay__carousel col-xxl-8 col-xl-12 mt-3 mt-xxl-0">
+            <!-- START THE CAROUSEL -->
+            <div
+              id="gameplay-carousel"
+              class="carousel slide mt-0 mt-xxl-5"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#gameplay-carousel"
+                  data-bs-slide-to="0"
+                  class="active carousel-indicators__bullet"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#gameplay-carousel"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                  class="carousel-indicators__bullet"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#gameplay-carousel"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                  class="carousel-indicators__bullet"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#gameplay-carousel"
+                  data-bs-slide-to="3"
+                  aria-label="Slide 4"
+                  class="carousel-indicators__bullet"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#gameplay-carousel"
+                  data-bs-slide-to="4"
+                  aria-label="Slide 5"
+                  class="carousel-indicators__bullet"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="images/game-1.jpg"
+                    class="carousel-item__image"
+                    alt="rock-paper-strategy"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="images/game-2.jpg"
+                    class="carousel-item__image"
+                    alt="rock-paper-strategy"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="images/game-3.jpg"
+                    class="carousel-item__image"
+                    alt="rock-paper-strategy"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="images/game-4.jpg"
+                    class="carousel-item__image"
+                    alt="rock-paper-strategy"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="images/game-5.jpg"
+                    class="carousel-item__image"
+                    alt="rock-paper-strategy"
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#gameplay-carousel"
+                data-bs-slide="prev"
+              >
+                <i class="bi bi-caret-left carousel-control-prev-icon"></i>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#gameplay-carousel"
+                data-bs-slide="next"
+              >
+                <i class="bi bi-caret-right carousel-control-next-icon"></i>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <!-- END OF CAROUSEL -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="feature" id="feature">
+      <div class="container h-100">
+        <div class="row text-start h-100">
+          <div class="offset-lg-7 col-lg-5">
+            <div class="feature__info m-0 h-100">
+              <h3 class="feature__info--subtitle text-white">
+                What's so special?
+              </h3>
+              <h1 class="feature__info--title text-uppercase text-white">
+                features
+              </h1>
+              <!-- START FEATURE CONTENT COMPONENT -->
+              <div class="feature__info--content">
+                <h3 class="feature__info--content--title">TRADITIONAL GAMES</h3>
+                <p>
+                  If you miss your childhood, we provide many traditional games
+                  here
+                </p>
+                <h3 class="feature__info--content--title">GAME SUIT</h3>
+                <h3 class="feature__info--content--title">TBD</h3>
+              </div>
+              <!-- END OF FEATURE CONTENT COMPONENT -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM REQUIREMENTS -->
+    <section class="sysreq" id="sysreq">
+      <div class="container text-center mt-5 pt-3">
+        <p class="sysreq-question text-white">Can My Computer Run this game?</p>
+        <div class="row text-start text-white">
+          <div class="col-lg-6">
+            <div class="sysreq-info">
+              <h1 class="sysreq-info__title">SYSTEM REQUIREMENTS</h1>
+              <!-- SPEC TABLE GOES HERE -->
+              <div class="sysreq-info__table">
+                <div class="sysreq-info__table--os">
+                  <div class="sysreq-info__table--title">OS</div>
+                  <div class="sysreq-info__table--subtitle">
+                    Windows 7 64-bit only (No OSX support at this time)
+                  </div>
+                </div>
+                <div class="sysreq-info__table--processor">
+                  <div class="sysreq-info__table--title">PROCESSOR</div>
+                  <div class="sysreq-info__table--subtitle">
+                    Intel Core 2 Duo @ 2.4GHz or AMD Athlon X2 @ 2.8GHz
+                  </div>
+                </div>
+                <div class="sysreq-info__table--memory">
+                  <div class="sysreq-info__table--title">MEMORY</div>
+                  <div class="sysreq-info__table--subtitle">4 GB RAM</div>
+                </div>
+                <div class="sysreq-info__table--storage">
+                  <div class="sysreq-info__table--title">STORAGE</div>
+                  <div class="sysreq-info__table--subtitle">
+                    8 GB available space
+                  </div>
+                </div>
+                <div class="sysreq-info__table--graphics">
+                  <div class="sysreq-info__table--title">GRAPHICS</div>
+                  <div class="sysreq-info__table--subtitle">
+                    NVIDIA GeForce GTX 660 2GB or AMD Radeon HD 7850 2GB
+                    DirectX11 (Shader Model 5)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARD -TOP SCORE -->
+    <section class="top-score" id="top-score">
+      <div class="container h-100">
+        <div
+          class="
+            row
+            text-white
+            h-100
+            d-flex
+            justify-content-center
+            align-items-center
+          "
+        >
+          <div class="col-lg-6 d-lg-flex justify-content-end">
+            <div class="top-score__info">
+              <h1 class="top-score__info--title">TOP SCORES</h1>
+              <p class="top-score__info--subtitle my-3 my-lg-4 mb-lg-5">
+                This top score from various games provided on this platform
+              </p>
+              <button type="button" class="btn btn-primary main-btn">
+                see more
+              </button>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <!-- CARDS START HERE -->
+            <div class="card-container row">
+              <!-- CARD 1 -->
+              <div class="card-item offset-lg-2 col-lg-10 offset-0 col-12">
+                <div class="card-item__header">
+                  <div class="card-item__header--photo">
+                    <img src="images/image-1.jpg" alt="photo-profile-1" />
+                  </div>
+                  <div class="card-item__header--profile">
+                    <div class="card-item__header--profile--name">
+                      Evan Lahti
+                    </div>
+                    <div class="card-item__header--profile--job">PC Gamer</div>
+                  </div>
+                </div>
+                <div class="card-item__twitter">
+                  <a href="twitter.com"
+                    ><i class="bi bi-twitter twitter-icon"></i
+                  ></a>
+                </div>
+                <div class="card-item__info">
+                  <div class="card-item__info--desc">
+                    "One of my gaming highlights of the year."
+                  </div>
+                  <div class="card-item__info--date">June 18, 2021</div>
+                </div>
+              </div>
+              <!-- CARD 2 -->
+              <div class="card-item col-lg-10 offset-0 col-12">
+                <div class="card-item__header">
+                  <div class="card-item__header--photo">
+                    <img src="images/image-2.jpg" alt="photo-profile-2" />
+                  </div>
+                  <div class="card-item__header--profile">
+                    <div class="card-item__header--profile--name">
+                      Jada Griffin
+                    </div>
+                    <div class="card-item__header--profile--job">
+                      Nerdreactor
+                    </div>
+                  </div>
+                </div>
+                <div class="card-item__twitter">
+                  <a href="twitter.com"
+                    ><i class="bi bi-twitter twitter-icon"></i
+                  ></a>
+                </div>
+                <div class="card-item__info">
+                  <div class="card-item__info--desc">
+                    "The next big thing in the world of streaming and survival
+                    games."
+                  </div>
+                  <div class="card-item__info--date">July 10, 2021</div>
+                </div>
+              </div>
+              <!-- CARD 3 -->
+              <div class="card-item offset-lg-1 col-lg-11 offset-0 col-12">
+                <div class="card-item__header">
+                  <div class="card-item__header--photo">
+                    <img src="images/image-3.jpg" alt="photo-profile-3" />
+                  </div>
+                  <div class="card-item__header--profile">
+                    <div class="card-item__header--profile--name">
+                      Aaron Williams
+                    </div>
+                    <div class="card-item__header--profile--job">Uproxx</div>
+                  </div>
+                </div>
+                <div class="card-item__twitter">
+                  <a href="twitter.com"
+                    ><i class="bi bi-twitter twitter-icon"></i
+                  ></a>
+                </div>
+                <div class="card-item__info">
+                  <div class="card-item__info--desc">
+                    "Snoop Dogg Playing The Wildly Entertaining 'SOS' Is
+                    Ridiculous."
+                  </div>
+                  <div class="card-item__info--date">December 24, 2018</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="footer text-white bg-black" id="footer">
+      <div
+        class="
+          container
+          pt-5
+          h-100
+          d-flex
+          justify-content-end
+          flex-column
+          align-items-center
+        "
+      >
+        <div class="row footer-info">
+          <div class="col-lg-6 footer-info__left">
+            <div class="footer-info__left--wrapper">
+              <div class="statue-wrapper">
+                <img src="images/footer.png" alt="footer-statue" />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 footer-info__right">
+            <div class="footer-info__right--container">
+              <div class="footer-info__right--container__text">
+                <h3 class="footer-info__right--container__text--subtitle">
+                  Want to stay in touch?
+                </h3>
+                <h1
+                  class="
+                    footer-info__right--container__text--title
+                    text-uppercase
+                    my-4
+                  "
+                >
+                  Newsletter subscribe
+                </h1>
+                <p class="footer-info__right--container__text--desc">
+                  In order to start receiving our news, all you have to do is
+                  enter your email address. Everything else will be taken care
+                  of by us. We will send you emails containing information about
+                  game.We don't spam.
+                </p>
+              </div>
+              <div
+                class="footer-info__right--container__subscribe d-flex gap-2"
+              >
+                <div class="footer-info__right--container__subscribe--input">
+                  <label for="email">Your email address</label>
+                  <input
+                    type="email"
+                    placeholder="Please enter your email..."
+                    name="email"
+                    class="
+                      footer-info__right--container__subscribe--input--email
+                    "
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="
+                    btn btn-primary
+                    main-btn
+                    footer-info__right--container__subscribe--btn
+                  "
+                >
+                  Subscribe now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-sm">
+          <div class="footer-sm__menu">
+            <ul>
+              <li><a href="#intro">main</a></li>
+              <li><a href="#gameplay">about</a></li>
+              <li><a href="#feature">game features</a></li>
+              <li><a href="#sysreq">system requirements</a></li>
+              <li><a href="#top-score">quotes</a></li>
+            </ul>
+          </div>
+          <div class="footer-sm__icons">
+            <a href="facebook.com">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="twitter.com">
+              <i class="bi bi-twitter"></i>
+            </a>
+            <a href="youtube.com">
+              <i class="bi bi-youtube"></i>
+            </a>
+            <a href="twitch.com">
+              <i class="bi bi-twitch"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-copy">
+          <div class="footer-copy__info">
+            &COPY; 2018 Your Games, Inc. All Rights Reserved
+          </div>
+          <div class="footer-copy__policy">
+            <a href="#">PRIVACY POLICY</a>
+            <a href="#">TERMS OF SERVICES</a>
+            <a href="#">CODE OF CONDUCT</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/bootstrap.bundle.js"></script>
+  </body>
+</html>

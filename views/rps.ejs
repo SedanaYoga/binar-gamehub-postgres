@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RPS Binar Game</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/rps-style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <div class="container mt-3">
+      <nav class="menu">
+        <div class="arrow-left">
+          <a href="/"><</a>
+        </div>
+        <div class="rps-header">
+          <span class="rps-header__logo">
+            <img src="images/rps/logo 1.png" alt="rps-logo" />
+          </span>
+          <span class="rps-header__text text-uppercase"
+            >Rock Paper Scissors</span
+          >
+        </div>
+      </nav>
+    </div>
+
+    <!-- MAIN GAMEPLAY -->
+    <div class="main mt-4">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-5 position-relative">
+            <h1 class="text-uppercase">Player 1</h1>
+            <div class="main__choice">
+              <div id="r">
+                <img src="images/rps/batu.png" alt="batu" />
+              </div>
+              <div id="p">
+                <img src="images/rps/kertas.png" alt="kertas" />
+              </div>
+              <div id="s">
+                <img src="images/rps/gunting.png" alt="gunting" />
+              </div>
+            </div>
+            <div id="user-point" class="point">0</div>
+          </div>
+          <div class="col-2 main-result">
+            <div class="main-result__box text-uppercase" id="result">
+              <h1>VS</h1>
+            </div>
+          </div>
+          <div class="col-5 position-relative">
+            <h1 class="text-uppercase">comp</h1>
+            <div class="main__choice">
+              <div id="comp_r">
+                <img class="comp" src="images/rps/batu.png" alt="batu" />
+              </div>
+              <div id="comp_p">
+                <img class="comp" src="images/rps/kertas.png" alt="kertas" />
+              </div>
+              <div id="comp_s">
+                <img class="comp" src="images/rps/gunting.png" alt="gunting" />
+              </div>
+            </div>
+            <div id="comp-point" class="point">0</div>
+          </div>
+        </div>
+      </div>
+      <div class="refresh">
+        <img id="refresh" src="images/rps/refresh.png" alt="refresh" />
+      </div>
+    </div>
+
+    <script src="js/rps-app.js"></script>
+  </body>
+</html>

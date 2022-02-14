@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dashboard | Binar Gamehub</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/css/dashboard.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="left">
+        <div class="logo">
+          <a href="/">
+            <img src="images/favicon.png" alt="Binar Gamehub" />
+          </a>
+        </div>
+        <div class="title">
+          <h1 class="title__text">Welcome to Dashboard!</h1>
+          <p class="title__subtext">
+            Here's the user list!  
+            <br>You can either update, delete, or just view them.</br>
+          Just give it a try!
+          </p>
+        </div>
+      </div>
+      <div class="right">
+       <div class="right-container">
+          <div class="dash-head">
+            <div class="dash-head__username">Username</div>
+            <div class="dash-head__email">User Email</div>
+            <div class="dash-head__lastupdate">Last Update</div>
+            <div class="dash-head__actions">Actions</div>
+          </div>
+          <% users.forEach(user => { %>
+         <div class="dash-row">
+            <div class="dash-row__username"><%=user.username%></div>
+            <div class="dash-row__email"><%=user.email%></div>
+            <div class="dash-row__lastupdate"><%=user.updatedAt.toString().slice(0,15)%></div>
+            <div class="dash-row__actions">
+              <a href="/users/<%=user.uuid%>" class="dash-row__actions--view">
+              <img src="images/dashboard/view-icon.png" alt="view">  
+              </a> 
+           <a href="/users/<%=user.uuid%>/update" class="dash-row__actions--update">
+                <img src="images/dashboard/update-icon.png" alt="update">  
+
+              </a> 
+           <a href="/users/<%=user.uuid%>/delete" class="dash-row__actions--delete">
+                <img src="images/dashboard/delete-icon.png" alt="delete">  
+
+              </a> 
+            </div>
+          </div> 
+          <%})%>
+        </div> 
+      </div>
+    </div>
+  </body>
+</html>

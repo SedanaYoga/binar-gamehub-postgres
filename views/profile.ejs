@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= user.biodata.full_name ? user.biodata.full_name.split(" ")[0] : user.username.toUpperCase()%> Profile | Binar Gamehub</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/css/profile.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="left">
+        <div class="logo">
+          <a href="/">
+            <img src="/images/favicon.png" alt="Binar Gamehub" />
+          </a>
+        </div>
+        <div class="title">
+          <h1 class="title__text"><%= user.biodata.full_name ? user.biodata.full_name.split(" ")[0] : user.username.toUpperCase() %> <br><span>Profile Page</span></h1>
+          <p class="title__subtext">
+            Hi, there!
+            <br>Vie and make sure you enter the latest data!</br>
+          </p>
+          <a href="/users/<%=user.uuid%>/update" class="title__update">Update Your Account</a>
+        </div>
+      </div>
+      <div class="right">
+       <div class="right-container">
+          <h1 class="account-title fw-bold"><%= user.biodata.full_name ? user.biodata.full_name.split(" ")[0] : user.username.toUpperCase() %> Account Detail</h1>
+          <div class="box">
+            <div class="username box__key">Username</div>
+            <div class="username box__value"><%=user.username%></div>
+          </div>
+          <div class="box">
+            <div class="email box__key">Email</div>
+            <div class="email box__value"><%=user.email%></div>
+          </div>
+          <h1 class="biodata-title fw-bold"><%= user.biodata.full_name ? user.biodata.full_name.split(" ")[0] : user.username.toUpperCase() %> Biodata Detail</h1>
+                    <div class="box">
+            <div class="fullname box__key">Full Name</div>
+            <div class="fullname box__value"><%=user.biodata.full_name || '-'%></div>
+          </div>
+          <div class="box">
+            <div class="dob box__key">Date of Birth</div>
+            <div class="dob box__value"><%=user.biodata.dob || '-'%></div>
+          </div>
+          <div class="box">
+            <div class="address box__key">Address</div>
+            <div class="address box__value"><%=user.biodata.address || '-'%></div>
+          </div>
+          <div class="box">
+            <div class="contact box__key">Contact</div>
+            <div class="contact box__value"><%=user.biodata.contact || '-'%></div>
+          </div>
+
+          <h1 class="statistic-title fw-bold"><%= user.biodata.full_name ? user.biodata.full_name.split(" ")[0] : user.username.toUpperCase() %> Statictics</h1>
+          <div class="box">
+            <div class="wincount box__key">Win Count</div>
+            <div class="wincount box__value"><%=winCount%></div>
+          </div>
+          <div class="box">
+            <div class="losecount box__key">Lose Count</div>
+            <div class="losecount box__value"><%=loseCount%></div>
+          </div>
+          <div class="box">
+            <div class="drawcount box__key">Draw Count</div>
+            <div class="drawcount box__value"><%=drawCount%></div>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </body>
+</html>
+

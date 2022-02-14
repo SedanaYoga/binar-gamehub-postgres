@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% if(signType === "up"){ %>
+    <title>Sign Up | Binar Gamehub</title>
+    <% } %>  
+    <% if(signType === "in"){ %>
+    <title>Sign In | Binar Gamehub</title>
+    <% } %>  
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/signinup.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="left">
+        <div class="logo">
+          <a href="/">
+            <img src="images/favicon.png" alt="Binar Gamehub" />
+          </a>
+        </div>
+        <div class="title">
+              <% if(signType === "up"){ %>
+          <h1 class="title__text">Sign up</h1>
+              <% } %>  
+              <% if(signType === "in"){ %>
+          <h1 class="title__text">Sign in</h1>
+              <% } %>  
+          <p class="title__subtext">Please, fill up the form below</p>
+        </div>
+        <% if(signType === "up"){ %>
+        <form action="/users" method="post">
+        <% } %>  
+        <% if(signType === "in"){ %>
+        <form action="/signin" method="post">
+        <% } %>  
+              <% if(signType === "up"){ %>
+            <input type="text" name="username" placeholder="Username" />
+              <% } %>  
+            <input type="email" name="email" placeholder="Email" />
+          <input type="password" name="password" placeholder="Password" />
+              <% if(signType === "up"){ %>
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+          />
+              <% } %>  
+          <% if(signType === "up"){ %>
+            <button type="submit">Create Account</button>
+          <% } %>  
+          <% if(signType === "in"){ %>
+            <button type="submit">Sign In</button>
+          <% } %>  
+        </form>
+        <div class="have-account">
+          <p class="have-account__text">
+              <% if(signType === "up"){ %>
+            Already have an account? <a href="/signin">Login here</a>
+              <% } %>  
+            <% if(signType === "in"){ %>
+             Don't have an account? <a href="/signup">Sign up here</a>
+            <% } %>  
+          </p>
+        </div>
+      </div>
+      <div class="right">
+        <div class="card-sign">
+          <div class="card-sign__left">
+            <img
+              src="images/signinup/stick-right.png"
+              alt="gamepad-icon"
+            />
+          </div>
+          <div class="card-sign__right">
+            <h2 class="card-sign__right--text">Most complete collection</h2>
+            <p class="card-sign__right--subtext">
+              Biggest gamehub on the internet, find your favorite game with the
+              best experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

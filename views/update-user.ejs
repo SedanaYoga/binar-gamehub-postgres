@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Update User | Binar Gamehub</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/css/update-user.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="left">
+        <div class="logo">
+          <a href="/">
+            <img src="/images/favicon.png" alt="Binar Gamehub" />
+          </a>
+        </div>
+        <div class="title">
+          <h1 class="title__text">Update Profile</h1>
+        </div>
+        <form action="/users/<%=user.uuid%>/update" method="post">
+          <p class="account-details__text">Account Details</p>
+          <input type="text" name="username" placeholder="Username" value="<%=user.username%>" />
+          <input type="email" name="email" placeholder="Email" value="<%=user.email%>"/>
+          <p class="account-biodata__text">Biodata Details</p>
+          <input type="text" name="full_name" placeholder="Full Name" />
+          <div class="dob-container">
+            <label for="dob" clasos="">Date of Birth</label>
+            <input type="date" name="dob" placeholder="Date of Birth" />
+          </div>
+          <input type="text" name="address" placeholder="Address" />
+          <input type="text" name="contact" placeholder="Contact" />
+          <button type="submit">Update</button>
+        </form>
+      </div>
+      <div class="right">
+        <div class="card-sign">
+          <div class="card-sign__left">
+            <img
+              src="/images/signinup/stick-right.png"
+              alt="gamepad-icon"
+            />
+          </div>
+          <div class="card-sign__right">
+            <h2 class="card-sign__right--text">Most complete collection</h2>
+            <p class="card-sign__right--subtext">
+              Biggest gamehub on the internet, find your favorite game with the
+              best experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
