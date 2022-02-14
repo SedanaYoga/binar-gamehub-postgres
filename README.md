@@ -159,8 +159,8 @@ Redirect to Home Page with the new user that has already logged in.
 ## Rock Paper Scissor Game
 The game logic is using threshold point, it's been set to 6. Means, the result will be out when
 `user.points + comp.points = 6`
-User will be win if the score is either 1-5, 2-4
-User will be lose if the score is either 5-1, 4-2
+User will be win if the score is either 0-6, 1-5, 2-4
+User will be lose if the score is either 6-0, 5-1, 4-2
 User will be drawn if the score is 3-3
 ### Request
 `POST /histories`
