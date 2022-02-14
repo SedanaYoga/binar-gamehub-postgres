@@ -23,6 +23,7 @@ let logProps = {
     uuid: '',
     userId: '',
     username: '',
+    isAdmin: false,
   },
 }
 
@@ -65,6 +66,7 @@ app.get('/', async (req, res) => {
             uuid: '',
             userId: '',
             username: '',
+            isAdmin: false,
           },
         }
       }
@@ -91,7 +93,10 @@ app.post('/users', async (req, res) => {
     req.body.password === ''
   )
     res.status(400).json({ message: 'Please enter all user data' })
+
   const { username, email, password, confirmPassword } = req.body
+  const isAdmin = req.body.isAdmin ? true : false
+
   if (password !== confirmPassword) res.send("Password doesn't match!")
 
   try {
@@ -99,6 +104,7 @@ app.post('/users', async (req, res) => {
       username,
       email,
       password,
+      isAdmin,
     })
 
     await UserGameBiodata.create({
@@ -111,6 +117,7 @@ app.post('/users', async (req, res) => {
       uuid: user.uuid,
       userId: user.id,
       username: user.username,
+      isAdmin: user.isAdmin,
     }
     return res.redirect('/')
   } catch (err) {
@@ -141,7 +148,8 @@ app.post('/signin', async (req, res) => {
       logProps.loggedAs.uuid = user.uuid
       logProps.loggedAs.userId = user.id
       logProps.loggedAs.username = user.username
-      console.log(logProps)
+      logProps.loggedAs.isAdmin = user.isAdmin
+      // console.log(logProps)
       // return res.redirect('/')
       return res.redirect('/')
     } else {
@@ -161,6 +169,7 @@ app.get('/logout', (req, res) => {
       uuid: '',
       userId: '',
       username: '',
+      isAdmin: false,
     },
   }
   res.redirect('/')
@@ -168,12 +177,14 @@ app.get('/logout', (req, res) => {
 
 // --Dashboard-----------------------------------------------------------------
 app.get('/users', async (req, res) => {
-  const users = await findUsersHandler([], 'all')
+  const users = await findUsersHandler(['biodata', 'histories'], 'all')
   return res.json(users)
 })
 
 app.get('/dashboard', async (req, res) => {
   try {
+    if (!logProps.loggedAs.isAdmin) return res.redirect('/')
+
     const users = await findUsersHandler([], 'all')
     res.render('dashboard', { users })
   } catch (error) {
@@ -192,7 +203,11 @@ app.get('/users/:uuid/update', async (req, res) => {
         uuid: req.params.uuid,
       },
     })
-    res.render('update-user', { user, errors })
+
+    if (logProps.loggedAs.isAdmin || logProps.loggedAs.uuid === user.uuid) {
+      return res.render('update-user', { user, errors })
+    }
+    return res.redirect('/')
   } catch (err) {
     console.log(err)
     res.status(400).json(err)

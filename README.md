@@ -21,7 +21,6 @@ A repository for completing Binar Fullstack Web Development Bootcamp - Chapter 6
 ![Sign Up Page][signup-page]
 ![Update User Page][update-user-page]
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Built With
@@ -65,16 +64,14 @@ Kind of additional page for previous challenge, this chapter I learnt about data
 If you want to edit the code, you need to have `nodejs` and `NPM`. Note: Sass files are not included here.
 
 - Install all dependencies by this command if you already get node and npm installed in your system.
+
 ```sh
 npm install
 ```
-- You also need the to install PostgreSQL, download postgresql [here](https://www.postgresql.org/download/) 
-- Setup database using sequelize-cli for database migration, follow instruction [here](https://sequelize.org/master/manual/migrations.html)
-```sh
-sequelize db:create
-sequelize db:migrate
-```
-- Setup `/config/config.json` 
+
+- You also need the to install PostgreSQL, download postgresql [here](https://www.postgresql.org/download/)
+- Setup `/config/config.json`
+
 ```js
 "development": {
     "username": <Your PostgreSQL Username>,
@@ -85,6 +82,17 @@ sequelize db:migrate
   },
 ```
 
+- Setup database using sequelize-cli for database migration and seeding, follow instruction [here](https://sequelize.org/master/manual/migrations.html)
+
+Do this in sequence
+
+```sh
+sequelize db:drop
+sequelize db:create
+sequelize db:migrate
+sequelize db:seed:all
+```
+
 # Usage
 
 - Start the server by this command, it will run `node app.js`
@@ -92,10 +100,17 @@ sequelize db:migrate
   npm run start
   ```
 - Open `localhost:5000` in your browser
+- Available Users
+
+| Email          | Password | Is Admin? |
+| -------------- | -------- | --------- |
+| admin@mail.com | 123      | TRUE      |
+| syoga@mail.com | 123      | FALSE     |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # PostgreSQL Table Structure
+
 ## The Tables
 
 `user_games`
@@ -112,82 +127,119 @@ sequelize db:migrate
 
 `user_game_histories`
 
-| Column                | Type    | Constraint        | Value                 |
-| --------------------- | ------- | ----------------- | --------------------- |
-| id                    | INTEGER | PK                | Auto generated        |
-| uuid                  | UUID    | \-                | Auto generated        |
-| fk\_userId\_histories | INTEGER | FK                | User ID               |
-| user\_id              | STRING  | \-                | User UUID             |
-| score                 | INTEGER | 1, -1, 0, NOTNULL | Fetched from the game |
-| createdAt             | DATE    | NOTNULL           | Auto Generated        |
-| updatedAt             | DATE    | NOTNULL           | Auto Generated        |
+| Column              | Type    | Constraint        | Value                 |
+| ------------------- | ------- | ----------------- | --------------------- |
+| id                  | INTEGER | PK                | Auto generated        |
+| uuid                | UUID    | \-                | Auto generated        |
+| fk_userId_histories | INTEGER | FK                | User ID               |
+| user_id             | STRING  | \-                | User UUID             |
+| score               | INTEGER | 1, -1, 0, NOTNULL | Fetched from the game |
+| createdAt           | DATE    | NOTNULL           | Auto Generated        |
+| updatedAt           | DATE    | NOTNULL           | Auto Generated        |
 
 `user_game_biodata`
 
-| Column              | Type    | Constraint | Value          |
-| ------------------- | ------- | ---------- | -------------- |
-| id                  | INTEGER | PK         | Auto Generated |
-| uuid                | UUID    | \-         | Auto Generated |
-| fk\_userId\_biodata | INTEGER | FK         | User ID        |
-| user\_id            | STRING  | \-         | User UUID      |
-| full\_name          | STRING  | \-         | input          |
-| dob                 | STRING  | \-         | input          |
-| address             | STRING  | \-         | input          |
-| contact             | STRING  | \-         | input          |
-| createdAt           | DATE    | NOTNULL    | Auto Generated |
-| updatedAt           | DATE    | NOTNULL    | Auto Generated |
+| Column            | Type    | Constraint | Value          |
+| ----------------- | ------- | ---------- | -------------- |
+| id                | INTEGER | PK         | Auto Generated |
+| uuid              | UUID    | \-         | Auto Generated |
+| fk_userId_biodata | INTEGER | FK         | User ID        |
+| user_id           | STRING  | \-         | User UUID      |
+| full_name         | STRING  | \-         | input          |
+| dob               | STRING  | \-         | input          |
+| address           | STRING  | \-         | input          |
+| contact           | STRING  | \-         | input          |
+| createdAt         | DATE    | NOTNULL    | Auto Generated |
+| updatedAt         | DATE    | NOTNULL    | Auto Generated |
 
 ## The Association
+
 [![Table Association][table-association]](https://drawsql.app/syoga/diagrams/binar-gamehub)
 
 # API Documentation
 
 ## Sign-In
+
 Will do a sign in behavior, checking `email` and `password` that user input in the form.
+
 ### Request
+
 `POST /sign-in`
+
 ### Response
+
 Redirect to Home Page with user that has already logged in
 
 ## Sign-Up
+
 Will need user input `email`, `username`, `password` to make a request to register new user to the database.
+
 ### Request
+
 `POST /users`
+
 ### Response
+
 Redirect to Home Page with the new user that has already logged in.
 
 ## Rock Paper Scissor Game
+
 The game logic is using threshold point, it's been set to 6. Means, the result will be out when
 `user.points + comp.points = 6`
 User will be win if the score is either 0-6, 1-5, 2-4
 User will be lose if the score is either 6-0, 5-1, 4-2
 User will be drawn if the score is 3-3
+
 ### Request
+
 `POST /histories`
+
 ### Response
+
 The response will take affect in backend side. The a history data row will be generated, if win = 1, lose = -1, draw = 0.
 
 ## Dashboard
+
 In Dashboard we will be able to View, Update, or Delete all users.
+
 ### Request
+
 `GET /users`
+
 ### Response
+
 Will get json response of user data but not including histories and biodata yet.
+
 ### Request
+
 `GET /users/:uuid`
+
 ### Response
+
 Will return html page to the profile of the params `uuid`
+
 ### Request
+
 `GET /users/:uuid/update`
+
 ### Response
+
 Will return html page to update user data of the params `uuid`
+
 ### Request
+
 `POST /users/:uuid/update`
+
 ### Response
+
 Update the user data to the database and redirect to the `dashboard` page
+
 ### Request
+
 `GET /users/:uuid/delete`
+
 ### Response
+
 Delete user with method `GET` since HTML only provide `GET` and `POST` method.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -210,6 +262,7 @@ Sedana Yoga - [@cok_yoga](https://twitter.com/Cok_Yoga)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [table-association]: public/images/table-association.png
 [dashboard]: public/images/dashboard.png
 [profile-page]: public/images/profile-page.png

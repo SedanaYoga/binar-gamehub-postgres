@@ -11206,6 +11206,16 @@ form input::placeholder {
 form input:focus {
   border: 2px solid rgba(0, 0, 0, 0.5);
 }
+form input:nth-child(4) {
+  margin-bottom: 1.5rem;
+}
+form input[type=checkbox] {
+  height: 20px;
+  margin-bottom: 10px;
+}
+form label {
+  margin: 0;
+}
 form button {
   width: 60%;
   height: 50px;
