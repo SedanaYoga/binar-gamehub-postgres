@@ -97,6 +97,8 @@ sequelize db:create
 sequelize db:migrate
 sequelize db:seed:all
 ```
+- Set up `.env` file in root path and put this string in it 
+`NODE_ENV=development`
 
 # Usage
 
