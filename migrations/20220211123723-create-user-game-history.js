@@ -21,6 +21,11 @@ module.exports = {
       score: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        validValue(value) {
+          if (value !== 1 || value !== -1 || value !== 0) {
+            throw new Error('Only value -1, 0, 1 are allowed')
+          }
+        },
       },
       createdAt: {
         allowNull: false,

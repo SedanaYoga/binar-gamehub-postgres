@@ -15,7 +15,6 @@ module.exports = {
       'user_games',
       [
         {
-          id: 1,
           username: 'admin',
           uuid: '3ce17ac5-bc4d-4ce6-9319-6052de92a731',
           email: 'admin@mail.com',
@@ -25,7 +24,6 @@ module.exports = {
           updatedAt: '2022-02-14 15:43:35.548+08',
         },
         {
-          id: 2,
           username: 'nonAdmin',
           uuid: '9ea5c1f8-69db-4d37-b536-dae5f6828bfc',
           email: 'syoga@mail.com',

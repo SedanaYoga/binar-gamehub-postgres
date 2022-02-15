@@ -34,9 +34,17 @@
               <% } %>  
           <p class="title__subtext">Please, fill up the form below</p>
         </div>
+
+        <%if(signType === "in" && error !== ""){%>
+        <div class="alert alert-danger" role="alert">
+          <%=error%>
+        </div>
+        <%}%>
+
         <% if(signType === "up"){ %>
         <form action="/users" method="post">
         <% } %>  
+
         <% if(signType === "in"){ %>
         <form action="/signin" method="post">
         <% } %>  

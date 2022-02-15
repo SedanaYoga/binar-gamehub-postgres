@@ -59,6 +59,11 @@ Kind of additional page for previous challenge, this chapter I learnt about data
 
 # Getting Started
 
+## New Feature
+- You can sign up and decide if you want to be an Admin or not, this makes you have different capabilities in managing users
+- RESTFUL API available at `/api/v1`
+- New RPS Game logic using Threshold Point which defined as 6 points (Game Result will be sent to database after the sume of user & comp points meet 6 points)
+
 ## Prerequisites
 
 If you want to edit the code, you need to have `nodejs` and `NPM`. Note: Sass files are not included here.
@@ -157,6 +162,10 @@ sequelize db:seed:all
 [![Table Association][table-association]](https://drawsql.app/syoga/diagrams/binar-gamehub)
 
 # API Documentation
+
+I created two branches of accessing API, from Portal and API Explorer.
+- API Explorer => You can view summary table in path `localhost:5000/api/v1/`
+- Portal API will be explained below
 
 ## Sign-In
 

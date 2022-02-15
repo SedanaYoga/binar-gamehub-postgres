@@ -4,18 +4,98 @@
     <title>API Explorer</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
+    <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg .tg-baqh{text-align:center;vertical-align:top}
+    .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+    .tg .tg-0lax{text-align:left;vertical-align:top}
+    </style>
   </head>
   <body>
     <h1>Welcome to API Explorer</h1> 
-    <h3>Users API</h3>
-    <ul>
-      <li><a href="/api/v1/users">GET / => All Users</a></li>
-      <li><a href="/api/v1/users/length">GET / => Users Count</a></li>
-      <li>POST /:id => Create a User (via POSTMAN)</li>
-      <li>GET /:id => User by ID (via POSTMAN)</li>
-      <li>PUT /:id => User by ID (via POSTMAN)</li>
-      <li>DELETE /:id => User by ID (via POSTMAN)</li>
-    </ul>
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-c3ow" colspan="3">User API</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-0lax">GET</td>
+        <td class="tg-0lax">/api/v1/users</td>
+        <td class="tg-0lax">Get All User Data (including history and biodata attached)</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">GET</td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">/api/v1/users/:uuid</span></td>
+        <td class="tg-0lax">Get One User Data by User UUID</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">POST</td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">/api/v1/users</span></td>
+        <td class="tg-0lax">Create New User with `email`,`username`, `password`, `isAdmin`</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">PUT</td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">/api/v1/users/:uuid</span></td>
+        <td class="tg-0lax">Update User by User UUID</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">DELETE</td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">/api/v1/users/:uuid</span></td>
+        <td class="tg-0lax">Delete User by User UUID</td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="3">Biodata API</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">GET</td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">/api/v1/biodata</span></td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">Get All Biodata Data of Each User</span></td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">GET</td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">/api/v1/biodata/:uuid</span></td>
+        <td class="tg-0lax">Get One Biodata by Biodata UUID</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">PUT</td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">/api/v1/biodata/:uuid</span></td>
+        <td class="tg-0lax">Update A Biodata with `full_name` ,`dob` ,`address` ,`contact`</td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="3">History API</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">GET</td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">/api/v1/history</span></td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">Get All History Data</span></td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">GET</td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">/api/v1/history/:uuid</span></td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">Get One History by </span>History<span style="font-weight:400;font-style:normal"> UUID</span></td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">POST</td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">/api/v1/history</span></td>
+        <td class="tg-0lax">Add a History to a User by User UUID in the payload</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">PUT</td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">/api/v1/history/:uuid</span></td>
+        <td class="tg-0lax">Update User's History (Score) by History UUID</td>
+      </tr>
+      <tr>
+        <td class="tg-0lax">DELETE</td>
+        <td class="tg-0lax"><span style="font-weight:400;font-style:normal">/api/v1/history/:uuid</span></td>
+        <td class="tg-0lax">Delete History Data by History UUID</td>
+      </tr>
+    </tbody>
+    </table>  
   </body>
 </html>
