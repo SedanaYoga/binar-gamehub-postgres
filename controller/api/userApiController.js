@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler')
-const { UserGame, UserGameBiodata, UserHistory } = require('../../models')
+const { UserGame, UserGameBiodata } = require('../../models')
 const findUsersHandler = require('../../utils/userHelper.js')
 
 exports.getAllUsersApiControl = asyncHandler(async (req, res) => {

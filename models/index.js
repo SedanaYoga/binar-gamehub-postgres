@@ -8,6 +8,28 @@ const env = process.env.NODE_ENV || 'development'
 const config = require(__dirname + '/../config/config.json')[env]
 const db = {}
 
+let logProps = {
+  isLogged: false,
+  loggedAs: {
+    uuid: '',
+    userId: '',
+    username: '',
+    isAdmin: false,
+  },
+}
+
+const setLogProps = (isLogged, uuid, userId, username, isAdmin) => {
+  logProps.isLogged = isLogged
+  logProps.loggedAs.uuid = uuid
+  logProps.loggedAs.userId = userId
+  logProps.loggedAs.username = username
+  logProps.loggedAs.isAdmin = isAdmin
+}
+
+const getLogProps = () => {
+  return logProps
+}
+
 let sequelize
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config)
@@ -42,4 +64,4 @@ Object.keys(db).forEach((modelName) => {
 
 db.sequelize = sequelize
 
-module.exports = db
+module.exports = { ...db, getLogProps, setLogProps }

@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler')
-const { UserGame, UserGameBiodata, UserHistory } = require('../../models')
+const { UserGameBiodata } = require('../../models')
 const findBiodataHandler = require('../../utils/biodataHelper.js')
 
 exports.getAllBiodataApiControl = asyncHandler(async (req, res) => {

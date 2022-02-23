@@ -1,8 +1,5 @@
 const asyncHandler = require('express-async-handler')
-const { UserGame, UserGameBiodata, UserHistory } = require('../../models')
-const { getLogProps, setLogProps } = require('../../state/logPropsState.js')
-const findUsersHandler = require('../../utils/userHelper.js')
-const logProps = getLogProps()
+const { UserGame, setLogProps } = require('../../models')
 
 exports.renderSignInPage = asyncHandler((req, res) => {
   res.render('sign-in-up', { signType: 'in', error: '' })

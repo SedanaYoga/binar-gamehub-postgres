@@ -1,7 +1,5 @@
 const asyncHandler = require('express-async-handler')
-const { UserGame, UserGameBiodata, UserHistory } = require('../../models')
-const { getLogProps, setLogProps } = require('../../state/logPropsState.js')
-const findUsersHandler = require('../../utils/userHelper.js')
+const { UserGame, getLogProps, setLogProps } = require('../../models')
 const logProps = getLogProps()
 
 exports.renderHomePage = asyncHandler(async (req, res) => {
